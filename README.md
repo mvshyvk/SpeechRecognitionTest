@@ -1,4 +1,4 @@
-# C++ API client
+# C++ KaldiService REST API client
 
 Console client application uses Kaldi Service REST API for speech recognition (KaldiService REST API repo: https://github.com/mvshyvk/KaldiService).
 
