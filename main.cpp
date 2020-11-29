@@ -59,6 +59,7 @@ auto PostKaldiServiceTask(const char* fileName, std::shared_ptr<KaldiServiceApi>
 auto WaitTaskCompletion(std::shared_ptr<KaldiServiceApi> api, utility::string_t taskId) -> std::shared_ptr<Result>
 {
 	std::cout << "Waiting for task completion: .";
+	std::cout.flush();
 	std::shared_ptr<Result> result;
 	web::http::status_code httpCode;
 
@@ -66,6 +67,7 @@ auto WaitTaskCompletion(std::shared_ptr<KaldiServiceApi> api, utility::string_t 
 	{
 		std::this_thread::sleep_for(std::chrono::seconds(1));
 		std::cout << ".";
+		std::cout.flush();
 		std::tie(result, httpCode) = api->GetTaskApi()->taskTaskIdStatusGet(taskId).get();
 	} while (httpCode == web::http::status_code(204));
 
